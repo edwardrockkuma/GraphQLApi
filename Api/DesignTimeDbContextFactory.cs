@@ -6,18 +6,18 @@ using System.IO;
 
 namespace Api
 {
-    public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<ApplicationContext>
-    {
-        public ApplicationContext CreateDbContext(string[] args)
-        {
-            IConfigurationRoot configuration = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json")
-                .Build();
-            var builder = new DbContextOptionsBuilder<ApplicationContext>();
-            var connectionString = configuration.GetConnectionString("DefaultConnection");
-            builder.UseSqlServer(connectionString);
-            return new ApplicationContext(builder.Options);
-        }
-    }
+    // public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<ApplicationContext>
+    // {
+    //     public ApplicationContext CreateDbContext(string[] args)
+    //     {
+    //         IConfigurationRoot configuration = new ConfigurationBuilder()
+    //             .SetBasePath(Directory.GetCurrentDirectory())
+    //             .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true, reloadOnChange: true)
+    //             .Build();
+    //         var builder = new DbContextOptionsBuilder<ApplicationContext>();
+    //         var connectionString = configuration.GetConnectionString("sqlConString");
+    //         builder.UseSqlServer(connectionString);
+    //         return new ApplicationContext(builder.Options);
+    //     }
+    // }
 }

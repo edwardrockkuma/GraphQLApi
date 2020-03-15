@@ -56,7 +56,8 @@ namespace Main
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationContext>(opt =>
-                opt.UseSqlServer(Configuration.GetConnectionString("sqlConString")));
+                opt.UseSqlite("Data Source=database.sqlite"));
+                //opt.UseSqlServer(Configuration.GetConnectionString("sqlConString")));
             services.AddScoped<IOwnerRepository, OwnerRepository>();
             services.AddScoped<IAccountRepository, AccountRepository>();
             services.AddScoped<IDependencyResolver>(s => new FuncDependencyResolver(s.GetRequiredService));

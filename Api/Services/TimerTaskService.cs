@@ -19,7 +19,7 @@ using System.IO;
 using BLL.Interface;
 using BLL.Service;
 using System.Net.Http;
-using LibForCore.SkypeHelp;
+//using LibForCore.SkypeHelp;
 using DataModel;
 using System.Globalization;
 using LibForCore.ExceptionHandle;
@@ -55,7 +55,7 @@ namespace Main.Services
         private object locker = new object();
 
         public IHttpClientFactory _httpClientFactory { get; private set; }
-        private ISkypeSender _skypeSender;
+        //private ISkypeSender _skypeSender;
         public IHostEnvironment _hostingEnvironment { get; private set; }
 
         private int _IsRunning = 0;             // timer 使用的Interlock
@@ -79,7 +79,7 @@ namespace Main.Services
         #region < 初始化
 
         public TimerTaskService(ILogger<TimerTaskService> log, IOptions<AppSettingMain> config, IBaseService BaseService, IHttpClientFactory httpClientFactory,
-                                ISkypeSender skypeSender, IHostEnvironment hostingEnvironment)
+                                 IHostEnvironment hostingEnvironment)
         {
             _log = log as CustomLogger<TimerTaskService>;
             _config = config.Value;
@@ -92,7 +92,7 @@ namespace Main.Services
             GetConfigValues();
 
             _httpClientFactory = httpClientFactory;
-            _skypeSender = skypeSender;
+            //_skypeSender = skypeSender;
 
             //ThreadPool.SetMinThreads(10,10);  // test
 
