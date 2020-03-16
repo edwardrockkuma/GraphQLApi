@@ -10,11 +10,7 @@ namespace DAL
 {
     public class AbstractBaseDAL : IDisposable
     {
-        /// <summary>
-        /// DB裡定義執行者為系統程式
-        /// </summary>
-        /// <returns></returns>
-        protected readonly Guid SystemID = new Guid("D441548C-2CEE-E811-A8A9-480FCF308590");
+        
         protected readonly string _dbConnectionString;
         private SqlConnection sqlConnection;
 
