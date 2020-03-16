@@ -11,9 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAL", "DAL\DAL.csproj", "{D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataModel", "DataModel\DataModel.csproj", "{8FA2AFFD-C917-4472-913D-9987EEBF4605}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XUnitTest", "XUnitTest\Tests.csproj", "{6DFEC167-80EA-4C83-912A-53DF65E11F6E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "XUnitTest\Tests.csproj", "{6DFEC167-80EA-4C83-912A-53DF65E11F6E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibForCore", "Lib\LibForCore.csproj", "{6D392BC6-3D80-45C4-B278-78F02B4DCCCB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibForCore", "Lib\LibForCore.csproj", "{6D392BC6-3D80-45C4-B278-78F02B4DCCCB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

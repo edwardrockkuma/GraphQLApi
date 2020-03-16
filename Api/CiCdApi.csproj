@@ -75,17 +75,12 @@
     </ProjectReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <Resource Include="InitLinuxVM.sh">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-  </ItemGroup>
-
   
-  <ItemGroup>
-    <!-- <RuntimeHostConfigurationOption Include="System.Globalization.Invariant" Value="false" /> -->
+  <ItemGroup><!-- <RuntimeHostConfigurationOption Include="System.Globalization.Invariant" Value="false" /> -->
     <!--為了不需要在Linux安裝ICU套件 -->
     <!-- <RuntimeHostConfigurationOption Include="System.Globalization.Invariant" Value="true" /> -->
+  
+    <Compile Remove="DesignTimeDbContextFactory.cs" />
   </ItemGroup>
 
   <ItemGroup>

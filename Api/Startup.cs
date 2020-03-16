@@ -32,6 +32,12 @@ using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
 using Microsoft.EntityFrameworkCore;
 using DataModel.Context;
 using GraphQL;
+using BLL.GraphQL.GraphQLSchema;
+using GraphQL.Server;
+using GraphQL.Server.Ui.Playground;
+using BLL.GraphQL.GraphQLQueries;
+using GraphQL.Types;
+using BLL.GraphQL.GraphQLTypes;
 
 namespace Main
 {
@@ -61,6 +67,20 @@ namespace Main
             services.AddScoped<IOwnerRepository, OwnerRepository>();
             services.AddScoped<IAccountRepository, AccountRepository>();
             services.AddScoped<IDependencyResolver>(s => new FuncDependencyResolver(s.GetRequiredService));
+            services.AddScoped<IOwnerRepository, OwnerRepository>();
+            services.AddScoped<IAccountRepository, AccountRepository>();
+            // 註冊IDependencyResolver物件
+            services.AddScoped<IDependencyResolver>(s => new FuncDependencyResolver(s.GetRequiredService));
+            // 註冊AppSchema物件
+            //services.AddScoped<AppSchema>();
+            services.AddScoped<IDocumentExecuter, DocumentExecuter>();
+            services.AddScoped<ISchema, AppSchema>();
+            services.AddScoped<AppQuery>();
+            services.AddTransient<OwnerType>();
+            //services.AddScoped<RootMutation>();
+            // 註冊GraphQL以及GraphTypes物件，其中AddGraphTypes()會自動幫我們註冊所有GraphQL Types，省下我們個別註冊每一個GraphQL Type的時間。
+            // services.AddGraphQL(o => { o.ExposeExceptions = false; })
+            //     .AddGraphTypes(ServiceLifetime.Scoped);
 
             //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
             services.AddControllers()     // for 3.1
@@ -204,6 +224,9 @@ namespace Main
             });
             //app.UseHttpsRedirection();
             app.UseStaticFiles();
+            // 在Configure中加入GraphQL Middleware，以及GraphQL Client端測試用Middleware GraphQLPlayground
+            //app.UseGraphQL<AppSchema>();
+            //app.UseGraphQLPlayground(options: new GraphQLPlaygroundOptions());
 
             //app.UseMvc();
 
