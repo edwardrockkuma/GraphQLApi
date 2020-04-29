@@ -1,6 +1,6 @@
-# A DotnetCore3 Template implement by Edward Liu
-* .Net Core 3.1 SDK
-* BDD via Specflow
+# A DotnetCore GraphQL API Demo by Edward Liu
+* .Net Core 3.1 
+* GraphQL
 * NSwag
 * N-Tier architecture 
 
