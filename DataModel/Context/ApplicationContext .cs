@@ -14,11 +14,7 @@ namespace DataModel.Context
         {
             
         }
-        // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        // {
-        //     optionsBuilder.UseSqlServer(
-        //         @"data source=127.0.0.1,1433;initial catalog=GraphQL;persist security info=True;user id=sa;password=9@^Edw;MultipleActiveResultSets=True;");
-        // }
+        
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
