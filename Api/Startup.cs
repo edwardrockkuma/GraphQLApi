@@ -13,12 +13,8 @@ using Microsoft.Extensions.Options;
 using LibForCore.ConfigJson;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using LibForCore.LogHelp;
-using LibForCore.SkypeHelp;
-using Main.Services;
 using Main.MidWare;
 using DataModel.SettingModel;
-using BLL.Interface;
-using BLL.Service;
 using DAL.Interface;
 using DAL.Repository;
 using Polly;
@@ -114,12 +110,7 @@ namespace Main
             // 以強型別物件解析appsettings , 由於每個專案有不同設定值, 因此以繼承AppSetting的class來承接
             services.Configure<AppSettingMain>(Configuration);
             // 註冊自行實作的定時任務
-            //services.AddHostedService<TimerTaskService>();    
-            services.AddSingleton<Microsoft.Extensions.Hosting.IHostedService, TimerTaskService>();    // 注意Namespace需額外指定才不會造成IHostEnvironment混淆
-            // db
-            services.AddTransient<IBaseRepository, BaseRepository>();
-            services.AddTransient<IBaseService, BaseService>();
-
+         
             // Polly , Retry策略設定 , 若不需動態調整設定值可在此定義
             var retryPolicy = HttpPolicyExtensions
                 .HandleTransientHttpError()

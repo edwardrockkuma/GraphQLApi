@@ -6,8 +6,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using LibForCore.LogHelp;
-//using LibForCore.AjaxData;
-using BLL.Interface;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.Extensions.Logging;
@@ -25,13 +23,11 @@ namespace CiCdApi.Controllers
         //protected CustomLogger<BaseController> _log { get; set; }
         private ILog _log = new NLogger("BaseController");
 
-       protected IBaseService _baseService { get; set; }
-
        protected IHttpContextAccessor _accessor {get;set;}
 
-       public BaseController(IHostedService timerTaskService, ILogger log, IHttpContextAccessor accessor)
+       public BaseController(IHttpContextAccessor accessor)
        {
-           //_baseService = baseService;
+           _accessor = accessor;
            //_log = log as CustomLogger<BaseController>;
 
        }
